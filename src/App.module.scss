@@ -1,0 +1,18 @@
+@import "~breakpoint-sass";
+
+$desktop: 1240px;
+
+.mainWrapper {
+  width: 80%;
+  min-width: 320px;
+  height: 1000px;
+  margin: 50px auto;
+  -webkit-box-shadow: 0 0 31px -5px rgba(51,51,51,1);
+  -moz-box-shadow: 0 0 31px -5px rgba(51,51,51,1);
+  box-shadow: 0 0 31px -5px rgba(51,51,51,1);
+
+  @include breakpoint($desktop) {
+    width: 1200px;
+  }
+}
+

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import style from './ParticularMovie.module.css';
+import style from './ParticularMovie.module.scss';
 
 class ParticularMovie extends Component {
   render() {

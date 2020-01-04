@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import style from './MainPage.module.css';
+import style from './MainPage.module.scss';
 
 class MainPage extends Component {
   render() {
