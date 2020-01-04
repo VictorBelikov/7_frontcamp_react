@@ -1,0 +1,23 @@
+.searchInput {
+  padding: 17px;
+  border: none;
+  background: RGBA(30, 30, 30, 0.7);
+  border-radius: 4px;
+  font-size: 1.2em;
+  color: #dddddd;
+  outline: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+  color: #888888;
+}
+::-moz-placeholder {
+  color: #888888;
+}
+:-moz-placeholder {
+  color: #888888;
+}
+:-ms-input-placeholder {
+  color: #888888;
+}

@@ -1,0 +1,12 @@
+.brand {
+  color: #F65261;
+  font-size: 1.2em;
+  position: absolute;
+}
+
+header {
+  .brand {
+    top: 20px;
+    left: 60px;
+  }
+}

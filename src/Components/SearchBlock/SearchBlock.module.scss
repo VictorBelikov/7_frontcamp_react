@@ -1,0 +1,10 @@
+.searchBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  input {
+    margin-right: 20px;
+  }
+}
