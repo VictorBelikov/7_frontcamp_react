@@ -1,6 +1,38 @@
 .movie {
+  text-decoration: none;
   width: 320px;
-  height: 530px;
-  background: pink;
-  margin-bottom: 45px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.1s;
+  color: #A8A8A8;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .metricsWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 5px ;
+    font-weight: bold;
+
+    .itemRelease {
+      border: 1px solid #666666;
+      border-radius: 4px;
+      padding: 2px 13px;
+      font-size: 0.9em;
+    }
+  }
+
+  .itemGenre {
+    color: #888888;
+    font-size: 0.9em;
+  }
 }
