@@ -1,0 +1,26 @@
+@import "~breakpoint-sass";
+
+$tablet: 720px;
+
+.searchResult {
+  background: #555555;
+  width: 100%;
+  border-bottom: 2px solid black;
+
+  .wrapper {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+    }
+  }
+  
+  .movies {
+    font-weight: bold;
+    line-height: 75px;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import style from './Header.module.scss';
+import SearchResult from '../../Components/SearchResult/SearchResult';
 
 class Header extends Component {
   render() {
@@ -10,6 +11,7 @@ class Header extends Component {
           <h1>{this.props.title}</h1>
           {this.props.children}
         </div>
+        <SearchResult />
       </header>
     );
   }

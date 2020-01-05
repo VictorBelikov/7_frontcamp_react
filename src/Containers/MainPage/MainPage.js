@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Brand from '../../Components/UI/Brand/Brand';
 import Header from '../Header/Header';
 import SearchBlock from '../../Components/SearchBlock/SearchBlock';
-import SearchType from '../../Components/SearchType/SearchType';
+import Filter from '../../Components/Filter/Filter';
 
 class MainPage extends Component {
   render() {
@@ -12,7 +12,7 @@ class MainPage extends Component {
         <Header title={'find your movie'}>
           <Brand fWord={'netflix'} sWord={'roulette'} />
           <SearchBlock />
-          <SearchType />
+          <Filter title={'search by'} leftBtnText={'title'} rightBtnText={'genre'} />
         </Header>
       </div>
     );

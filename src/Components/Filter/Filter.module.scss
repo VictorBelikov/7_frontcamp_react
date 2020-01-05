@@ -1,0 +1,38 @@
+.filter {
+  text-transform: uppercase;
+  display: flex;
+  margin: 20px 0;
+  font-size: 0.95em;
+
+  span {
+    margin-right: 20px;
+    line-height: 35px;
+  }
+
+  button {
+    text-transform: uppercase;
+    font-family: inherit;
+    font-size: 1em;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    border: none;
+    padding: 7px 23px;
+    background: RGBA(30, 30, 30, 0.6);
+    border-radius: 4px;
+    color: #dddddd;
+    outline: none;
+  }
+
+  button.left {
+    border-radius: 4px 0 0 4px;
+  }
+
+  button.right {
+    border-radius: 0 4px 4px 0;
+  }
+
+  button:hover,
+  button.active {
+    background: #F65261;
+  }
+}

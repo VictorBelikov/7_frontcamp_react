@@ -1,10 +1,23 @@
+@import "~breakpoint-sass";
+
+$tablet: 720px;
+
 .searchBlock {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   flex-wrap: nowrap;
 
+  @include breakpoint($tablet) {
+    flex-direction: row;
+  }
+
   input {
     margin-right: 20px;
+    width: 90%;
+
+    @include breakpoint($tablet) {
+      width: 100%
+    }
   }
 }
