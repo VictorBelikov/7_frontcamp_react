@@ -8,7 +8,6 @@ class SearchResult extends Component {
   render() {
     const movies = this.props.films.map((film) => {
       const genres = film.genres;
-
       return (
         <Movie
           key={film.id}
@@ -20,7 +19,6 @@ class SearchResult extends Component {
         />
       );
     });
-
     return <main className={style.searchResult}>{movies}</main>;
   }
 }
@@ -29,9 +27,4 @@ const mapStateToProps = (state) => ({
   films: state.films,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SearchResult);
+export default connect(mapStateToProps)(SearchResult);

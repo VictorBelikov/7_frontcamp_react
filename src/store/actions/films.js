@@ -3,12 +3,17 @@ import { buildRequest } from '../utils/utility';
 
 import axios from '../../axios-films';
 
-export const fetchFilmsSuccess = (films) => ({
+const fetchFilmsSuccess = (films) => ({
   type: __actions.FETCH_FILMS_SUCCESS,
   films,
 });
 
-export const fetchFilmsFail = (error) => ({
+const fetchParticularFilmSuccess = (film) => ({
+  type: __actions.FETCH_PARTICULAR_FILM_SUCCESS,
+  film,
+});
+
+const fetchFilmsFail = (error) => ({
   type: __actions.FETCH_FILMS_FAIL,
   error,
 });
@@ -30,6 +35,17 @@ export const fetchFilms = () => {
       .get(`/movies?${query}`)
       .then((response) => {
         dispatch(fetchFilmsSuccess(response.data.data));
+      })
+      .catch((err) => dispatch(fetchFilmsFail(err)));
+  };
+};
+
+export const fetchParticularFilm = (id) => {
+  return (dispatch, getState) => {
+    axios
+      .get(`/movies/${id}`)
+      .then((response) => {
+        dispatch(fetchParticularFilmSuccess(response.data));
       })
       .catch((err) => dispatch(fetchFilmsFail(err)));
   };

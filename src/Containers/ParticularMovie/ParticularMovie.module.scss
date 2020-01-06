@@ -62,18 +62,18 @@ $tablet-wide: 800px;
           height: 60px;
           border-radius: 50%;
           text-align: center;
-          line-height: 55px;
+          line-height: 60px;
           color: green;
           font-size: 1.5em;
 
           @include breakpoint($tablet-wide) {
-            top: -10px;
+            top: -13px;
           }
         }
       }
 
-      .award {
-        margin-top: 5px;
+      .tagline {
+        margin-top: 10px;
         color: #959595;
         font-size: 0.9em;
       }
@@ -93,7 +93,7 @@ $tablet-wide: 800px;
         }
       }
 
-      .description {
+      .overview {
         color: #cccccc;
       }
     }

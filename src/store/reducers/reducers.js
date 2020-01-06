@@ -4,6 +4,7 @@ import * as __actions from '../actions/actions';
 
 const initialState = {
   films: [],
+  particularFilm: {},
   query: {
     search: '',
     searchBy: 'title',
@@ -18,6 +19,11 @@ const films = (state = initialState, action) => {
     case __actions.FETCH_FILMS_SUCCESS:
       console.log(action.films);
       updatedObject.films = action.films;
+      return updatedObject;
+
+    case __actions.FETCH_PARTICULAR_FILM_SUCCESS:
+      console.log(action.film);
+      updatedObject.particularFilm = action.film;
       return updatedObject;
 
     case __actions.FETCH_FILMS_FAIL:
