@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import style from './ParticularMovie.module.scss';
 import movieImg from '../../assets/images/dummyImage.png';
@@ -7,10 +9,19 @@ import Brand from '../../Components/UI/Brand/Brand';
 import SearchFilter from '../../Components/SearchFilter/SearchFilter';
 
 class ParticularMovie extends Component {
+  searchIconClickHandler = () => {
+    this.props.history.push({ pathname: '/' });
+  };
+
   render() {
+    const searchIcon = <FontAwesomeIcon icon={faSearch} />;
+
     return (
       <header className={styleHeader.header}>
         <div className={style.contentWrapper}>
+          <div onClick={this.searchIconClickHandler} className={style.searchIconWrapper}>
+            {searchIcon}
+          </div>
           <Brand fWord={'netflix'} sWord={'roulette'} />
           <div className={style.mainWrapper}>
             <div className={style.imgWrapper}>

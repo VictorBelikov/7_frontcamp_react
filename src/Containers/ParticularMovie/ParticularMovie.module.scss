@@ -6,6 +6,16 @@ $tablet-wide: 800px;
   width: 90%;
   margin: 95px auto 60px;
 
+  .searchIconWrapper {
+    font-size: 25px;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    color: #F65261;
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
   .mainWrapper {
     display: flex;
     justify-content: space-between;

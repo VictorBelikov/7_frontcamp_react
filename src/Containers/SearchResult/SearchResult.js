@@ -7,12 +7,12 @@ class SearchResult extends Component {
   render() {
     return (
       <main className={style.searchResult}>
-        <Movie />
-        <Movie />
-        <Movie />
-        <Movie />
-        <Movie />
-        <Movie />
+        <Movie movieId={'34578'} />
+        <Movie movieId={'34578'} />
+        <Movie movieId={'34578'} />
+        <Movie movieId={'34578'} />
+        <Movie movieId={'34578'} />
+        <Movie movieId={'34578'} />
         {/*<Movie />*/}
         {/*<Movie />*/}
         {/*<Movie />*/}

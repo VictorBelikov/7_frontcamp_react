@@ -4,9 +4,9 @@ import movieImg from '../../assets/images/dummyImage.png';
 import style from './Movie.module.scss';
 import { Link } from 'react-router-dom';
 
-const Movie = () => {
+const Movie = (props) => {
   return (
-    <Link className={style.movie} to={'/movie'}>
+    <Link className={style.movie} to={`/movie/${props.movieId}`}>
       <img src={movieImg} alt="Cover" />
       <div className={style.metricsWrapper}>
         <span className={style.itemTitle}>Kill Bill: Vol 2</span>

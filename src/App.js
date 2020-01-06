@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className={style.mainWrapper}>
         <Switch>
-          <Route path={'/movie'} component={ParticularMovie} />
+          <Route path={'/movie/:id'} component={ParticularMovie} />
           <Route path={'/'} component={Search} />
         </Switch>
         <SearchResult />
