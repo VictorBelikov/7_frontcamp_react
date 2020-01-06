@@ -60,7 +60,6 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  films: state.films,
   searchBy: state.query.searchBy,
   search: state.query.search,
   limit: state.query.limit,

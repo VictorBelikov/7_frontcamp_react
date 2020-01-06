@@ -1,18 +1,17 @@
 import React from 'react';
 
-import movieImg from '../../assets/images/dummyImage.png';
 import style from './Movie.module.scss';
 import { Link } from 'react-router-dom';
 
 const Movie = (props) => {
   return (
-    <Link className={style.movie} to={`/movie/${props.movieId}`}>
-      <img src={movieImg} alt="Cover" />
+    <Link className={style.movie} to={`/movie/${props.id}`}>
+      <img src={props.imgUrl} alt="Cover" />
       <div className={style.metricsWrapper}>
-        <span className={style.itemTitle}>Kill Bill: Vol 2</span>
-        <span className={style.itemRelease}>2003</span>
+        <span className={style.itemTitle}>{props.title}</span>
+        <span className={style.itemRelease}>{props.releaseYear}</span>
       </div>
-      <span className={style.itemGenre}>Action & Adventure</span>
+      <span className={style.itemGenre}>{props.genre}</span>
     </Link>
   );
 };

@@ -1,24 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import style from './SearchResult.module.scss';
 import Movie from '../../Components/Movie/Movie';
 
 class SearchResult extends Component {
   render() {
-    return (
-      <main className={style.searchResult}>
-        <Movie movieId={'34578'} />
-        <Movie movieId={'34578'} />
-        <Movie movieId={'34578'} />
-        <Movie movieId={'34578'} />
-        <Movie movieId={'34578'} />
-        <Movie movieId={'34578'} />
-        {/*<Movie />*/}
-        {/*<Movie />*/}
-        {/*<Movie />*/}
-      </main>
-    );
+    const movies = this.props.films.map((film) => {
+      const genres = film.genres;
+
+      return (
+        <Movie
+          key={film.id}
+          id={film.id}
+          imgUrl={film.poster_path}
+          releaseYear={new Date(film.release_date).getFullYear()}
+          title={film.title}
+          genre={genres.length > 2 ? genres.join(', ') : genres.join(' & ')}
+        />
+      );
+    });
+
+    return <main className={style.searchResult}>{movies}</main>;
   }
 }
 
-export default SearchResult;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchResult);
