@@ -13,6 +13,9 @@ class SearchResult extends Component {
         <Movie />
         <Movie />
         <Movie />
+        {/*<Movie />*/}
+        {/*<Movie />*/}
+        {/*<Movie />*/}
       </main>
     );
   }

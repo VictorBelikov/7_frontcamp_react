@@ -5,4 +5,6 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  overflow: auto;
+  max-height: 1150px;
 }
