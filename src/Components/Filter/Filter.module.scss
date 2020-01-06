@@ -9,7 +9,7 @@
     line-height: 35px;
   }
 
-  button {
+  input {
     text-transform: uppercase;
     font-family: inherit;
     font-size: 1em;
@@ -23,16 +23,16 @@
     outline: none;
   }
 
-  button.left {
+  input.left {
     border-radius: 4px 0 0 4px;
   }
 
-  button.right {
+  input.right {
     border-radius: 0 4px 4px 0;
   }
 
-  button:hover,
-  button.active {
+  input:hover,
+  input.active {
     background: #F65261;
   }
 }

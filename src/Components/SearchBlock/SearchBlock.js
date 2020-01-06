@@ -6,8 +6,10 @@ import style from './SearchBlock.module.scss';
 
 const SearchBlock = (props) => (
   <div className={style.searchBlock}>
-    <SearchInput type={'text'} placeholder={'Enter movie name...'} />
-    <SearchButton click={props.btnClick}>search</SearchButton>
+    <SearchInput change={props.searchInputChange} type={'text'} placeholder={'Enter movie name...'} />
+    <SearchButton isDisable={props.isDisable} click={props.searchBtnClick}>
+      search
+    </SearchButton>
   </div>
 );
 

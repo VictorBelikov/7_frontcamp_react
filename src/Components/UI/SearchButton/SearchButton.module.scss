@@ -13,4 +13,10 @@
   &:hover {
     background: #ff787c;
   }
+
+  &:disabled {
+    background-color: #ac9980;
+    color: #ccc;
+    cursor: not-allowed;
+  }
 }
