@@ -5,7 +5,7 @@ import style from './Search.module.scss';
 import Brand from '../../Components/UI/Brand/Brand';
 import SearchBlock from '../../Components/SearchBlock/SearchBlock';
 import Filter from '../../Components/Filter/Filter';
-import SearchFilter from '../../Components/SearchFilter/SearchFilter';
+import SortFilter from '../../Components/SearchFilter/SortFilter';
 import * as __actions from '../../store/actions/films';
 
 class Search extends Component {
@@ -53,7 +53,7 @@ class Search extends Component {
             rightBtnText={'genre'}
           />
         </div>
-        <SearchFilter isSearchComponent />
+        <SortFilter isSearchComponent />
       </header>
     );
   }
@@ -62,7 +62,6 @@ class Search extends Component {
 const mapStateToProps = (state) => ({
   searchBy: state.query.searchBy,
   search: state.query.search,
-  limit: state.query.limit,
 });
 
 const mapDispatchToProps = (dispatch) => ({

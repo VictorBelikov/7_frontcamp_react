@@ -6,14 +6,24 @@ import { connect } from 'react-redux';
 import style from './ParticularMovie.module.scss';
 import styleHeader from '../Search/Search.module.scss';
 import Brand from '../../Components/UI/Brand/Brand';
-import SearchFilter from '../../Components/SearchFilter/SearchFilter';
+import SortFilter from '../../Components/SearchFilter/SortFilter';
 import * as __actions from '../../store/actions/films';
 
 class ParticularMovie extends Component {
   componentDidMount() {
+    this.fetchFilmHandler();
+  }
+
+  componentDidUpdate() {
+    if (+this.props.match.params.id !== this.props.film.id) {
+      this.fetchFilmHandler();
+    }
+  }
+
+  fetchFilmHandler = () => {
     const filmId = this.props.match.params.id;
     this.props.onFetchFilm(filmId);
-  }
+  };
 
   searchIconClickHandler = () => {
     this.props.history.push({ pathname: '/' });
@@ -37,22 +47,22 @@ class ParticularMovie extends Component {
             <div className={style.wrapper}>
               <div className={style.ratingWrapper}>
                 <h1 className={style.title}>{this.props.film.title}</h1>
-                <span className={style.rating}>{this.props.film.vote_average}</span>
+                <span className={style.rating}>{this.props.film.vote_average || '-.-'}</span>
               </div>
-              <p className={style.tagline}>{this.props.film.tagline}</p>
+              <p className={style.tagline}>{this.props.film.tagline || 'No tagline'}</p>
               <div className={style.movieDate}>
                 <p>
-                  {releaseDate} <span>year</span>
+                  {releaseDate || '----'} <span>year</span>
                 </p>
                 <p>
-                  {this.props.film.runtime} <span>min</span>
+                  {this.props.film.runtime || '---'} <span>min</span>
                 </p>
               </div>
-              <p className={style.overview}>{this.props.film.overview}</p>
+              <p className={style.overview}>{this.props.film.overview || 'No overview'}</p>
             </div>
           </div>
         </div>
-        <SearchFilter />
+        <SortFilter />
       </header>
     );
   }
@@ -63,9 +73,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onFetchFilm: (filmId) => {
-    dispatch(__actions.fetchParticularFilm(filmId));
-  },
+  onFetchFilm: (filmId) => dispatch(__actions.fetchParticularFilm(filmId)),
 });
 
 export default connect(

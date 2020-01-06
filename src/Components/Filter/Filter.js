@@ -3,8 +3,16 @@ import React from 'react';
 import style from './Filter.module.scss';
 
 const Filter = (props) => {
-  const leftActive = props.searchBy === props.leftBtnText ? style.active : '';
-  const rightActive = props.searchBy === props.rightBtnText ? style.active : '';
+  let leftActive;
+  let rightActive;
+
+  if (props.searchBy) {
+    leftActive = props.searchBy === props.leftBtnText ? style.active : '';
+    rightActive = props.searchBy === props.rightBtnText ? style.active : '';
+  } else if (props.sortBy) {
+    leftActive = props.sortBy === props.leftBtnText ? style.active : '';
+    rightActive = props.sortBy === props.rightBtnText ? style.active : '';
+  }
 
   return (
     <div className={style.filter}>

@@ -18,7 +18,7 @@ $tablet-wide: 800px;
 
   .mainWrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: column;
 
     @include breakpoint($tablet-wide) {

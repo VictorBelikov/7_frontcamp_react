@@ -8,6 +8,11 @@ const initialState = {
   query: {
     search: '',
     searchBy: 'title',
+    sortBy: 'rating',
+    sortFields: {
+      rating: 'vote_average',
+      'release date': 'release_date',
+    },
     limit: 20,
   },
 };
@@ -32,6 +37,10 @@ const films = (state = initialState, action) => {
 
     case __actions.SET_SEARCH_FILTER:
       updatedObject.query.searchBy = action.value;
+      return updatedObject;
+
+    case __actions.SET_SORT_FILTER:
+      updatedObject.query.sortBy = action.value;
       return updatedObject;
 
     case __actions.SET_SEARCH_VALUE:

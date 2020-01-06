@@ -23,6 +23,11 @@ export const setSearchFilter = (value) => ({
   value,
 });
 
+export const setSortFilter = (value) => ({
+  type: __actions.SET_SORT_FILTER,
+  value,
+});
+
 export const setSearchValue = (value) => ({
   type: __actions.SET_SEARCH_VALUE,
   value,
@@ -41,7 +46,7 @@ export const fetchFilms = () => {
 };
 
 export const fetchParticularFilm = (id) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     axios
       .get(`/movies/${id}`)
       .then((response) => {
