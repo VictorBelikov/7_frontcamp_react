@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import style from './SearchResult.module.scss';
 import Movie from '../../Components/Movie/Movie';
 
-function SearchResult(props) {
+const SearchResult = (props) => {
   let movies = <h1 className={style.noFound}>No films found</h1>;
 
   if (props.films.length > 0) {
@@ -23,7 +23,7 @@ function SearchResult(props) {
     });
   }
   return <main className={style.searchResult}>{movies}</main>;
-}
+};
 
 const mapStateToProps = (state) => ({
   films: state.films,

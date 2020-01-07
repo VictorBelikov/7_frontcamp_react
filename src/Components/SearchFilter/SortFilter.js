@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 
 import style from './SortFilter.module.scss';
 import Filter from '../Filter/Filter';
 import * as __actions from '../../store/actions/films';
 
-class SortFilter extends React.Component {
+class SortFilter extends Component {
   sortFilterClickHandler = (e) => {
     this.props.onSetSortFilter(e.target.value);
   };

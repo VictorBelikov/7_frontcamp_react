@@ -1,8 +1,8 @@
 import cloneDeep from 'clone-deep';
 
-export const buildRequest = (state, genre) => {
+export const buildRequest = (stateQuery, genre) => {
   let queryStr = '';
-  const query = cloneDeep(state.query);
+  const query = cloneDeep(stateQuery);
 
   if (genre) {
     query.search = genre;

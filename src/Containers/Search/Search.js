@@ -7,6 +7,7 @@ import SearchBlock from '../../Components/SearchBlock/SearchBlock';
 import Filter from '../../Components/Filter/Filter';
 import SortFilter from '../../Components/SearchFilter/SortFilter';
 import * as __actions from '../../store/actions/films';
+import { buildRequest } from '../../store/utils/utility';
 
 class Search extends Component {
   constructor(props) {
@@ -22,14 +23,16 @@ class Search extends Component {
     });
 
     if (this.props.search.trim().length > 0) {
-      this.props.onFetchFilms();
+      this.searchBtnClickHandler();
       document.getElementById('searchInput').value = this.props.search;
     }
   }
 
   searchBtnClickHandler = () => {
     if (this.props.search.trim().length > 0) {
-      this.props.onFetchFilms();
+      const query = buildRequest(this.props.query);
+      this.props.history.push(`/search?${query}`);
+      this.props.onFetchFilms(query);
     }
   };
 
@@ -69,10 +72,11 @@ class Search extends Component {
 const mapStateToProps = (state) => ({
   searchBy: state.query.searchBy,
   search: state.query.search,
+  query: state.query,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onFetchFilms: () => dispatch(__actions.fetchFilms()),
+  onFetchFilms: (query) => dispatch(__actions.fetchFilms(query)),
   onSetSearchFilter: (val) => dispatch(__actions.setSearchFilter(val)),
   onSetSearchValue: (val) => dispatch(__actions.setSearchValue(val)),
 });
