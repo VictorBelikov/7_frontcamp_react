@@ -15,8 +15,9 @@ class App extends Component {
       <div className={style.mainWrapper}>
         <Switch>
           <Route path={'/movie/:id'} component={ParticularMovie} />
-          <Route path={'/error'} component={Error} />
-          <Route path={'/'} component={Search} />
+          <Route path={'/search'} component={Search} />
+          <Route path={'/'} exact component={Search} />
+          <Route path={'/'} component={Error} />
         </Switch>
         <SearchResult />
         <Footer>
