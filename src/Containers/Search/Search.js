@@ -17,13 +17,20 @@ class Search extends Component {
   componentDidMount() {
     this.headerRef.current.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
-        this.props.onFetchFilms();
+        this.searchBtnClickHandler();
       }
     });
+
+    if (this.props.search.trim().length > 0) {
+      this.props.onFetchFilms();
+      document.getElementById('searchInput').value = this.props.search;
+    }
   }
 
   searchBtnClickHandler = () => {
-    this.props.onFetchFilms();
+    if (this.props.search.trim().length > 0) {
+      this.props.onFetchFilms();
+    }
   };
 
   searchFilterClickHandler = (e) => {

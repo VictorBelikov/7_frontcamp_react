@@ -7,4 +7,12 @@
   flex-wrap: wrap;
   overflow: auto;
   max-height: 1150px;
+
+  .noFound {
+    color: #C9C9C9;
+    text-align: center;
+    margin: 80px auto 130px;
+    font-weight: normal;
+    font-size: 3em;
+  }
 }

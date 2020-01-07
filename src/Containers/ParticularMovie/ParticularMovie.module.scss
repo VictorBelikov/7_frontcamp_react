@@ -14,6 +14,11 @@ $tablet-wide: 800px;
     color: #F65261;
     cursor: pointer;
     transform: rotate(90deg);
+    transition: 0.2s;
+  }
+
+  .searchIconWrapper:hover {
+    transform: scale(1.2) rotate(90deg);
   }
 
   .mainWrapper {
