@@ -8,11 +8,12 @@ const initialState = {
   query: {
     search: '',
     searchBy: 'title',
-    sortBy: 'rating',
-    sortFields: {
-      rating: 'vote_average',
-      'release date': 'release_date',
-    },
+    sortOrder: 'desc',
+    sortBy: 'vote_average',
+    // sortFields: {
+    //   rating: 'vote_average',
+    //   'release date': 'release_date',
+    // },
     limit: 20,
   },
 };
