@@ -51,7 +51,7 @@ class Search extends Component {
           <h1>find your movie</h1>
           <Brand fWord={'netflix'} sWord={'roulette'} />
           <SearchBlock
-            isDisable={this.props.search}
+            isDisable={this.props.search.trim()}
             searchInputChange={this.searchInputChangeHandler}
             searchBtnClick={this.searchBtnClickHandler}
           />

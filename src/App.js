@@ -7,6 +7,7 @@ import ParticularMovie from './Containers/ParticularMovie/ParticularMovie';
 import SearchResult from './Containers/SearchResult/SearchResult';
 import Footer from './Containers/Footer/Footer';
 import Brand from './Components/UI/Brand/Brand';
+import Error from './Components/Error/Error';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
       <div className={style.mainWrapper}>
         <Switch>
           <Route path={'/movie/:id'} component={ParticularMovie} />
+          <Route path={'/error'} component={Error} />
           <Route path={'/'} component={Search} />
         </Switch>
         <SearchResult />
