@@ -33,26 +33,31 @@ export const setSearchValue = (value) => ({
   value,
 });
 
+const fetchMovies = (dispatch, state, genre) => {
+  const query = buildRequest(state, genre);
+  console.log(query);
+  axios
+    .get(`/movies?${query}`)
+    .then((response) => {
+      dispatch(fetchFilmsSuccess(response.data.data));
+    })
+    .catch((err) => dispatch(fetchFilmsFail(err)));
+};
+
 export const fetchFilms = () => {
   return (dispatch, getState) => {
-    const query = buildRequest(getState());
-    console.log(query);
-    axios
-      .get(`/movies?${query}`)
-      .then((response) => {
-        dispatch(fetchFilmsSuccess(response.data.data));
-      })
-      .catch((err) => dispatch(fetchFilmsFail(err)));
+    fetchMovies(dispatch, getState());
   };
 };
 
 export const fetchParticularFilm = (id) => {
-  return (dispatch) => {
-    axios
-      .get(`/movies/${id}`)
-      .then((response) => {
-        dispatch(fetchParticularFilmSuccess(response.data));
-      })
-      .catch((err) => dispatch(fetchFilmsFail(err)));
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`/movies/${id}`);
+      await dispatch(fetchParticularFilmSuccess(response.data));
+      fetchMovies(dispatch, getState(), response.data.genres[0]);
+    } catch (err) {
+      dispatch(fetchFilmsFail(err));
+    }
   };
 };
