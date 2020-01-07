@@ -34,7 +34,6 @@ export const setSearchValue = (value) => ({
 });
 
 const fetchMovies = (dispatch, query) => {
-  console.log(query);
   axios
     .get(`/movies?${query}`)
     .then((response) => {
