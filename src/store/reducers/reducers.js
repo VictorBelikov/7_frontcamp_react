@@ -25,12 +25,10 @@ const films = (state = initialState, action) => {
 
   switch (action.type) {
     case __actions.FETCH_FILMS_SUCCESS:
-      console.log(action.films);
       updatedObject.films = action.films;
       return updatedObject;
 
     case __actions.FETCH_PARTICULAR_FILM_SUCCESS:
-      console.log(action.film);
       updatedObject.particularFilm = action.film;
       return updatedObject;
 
