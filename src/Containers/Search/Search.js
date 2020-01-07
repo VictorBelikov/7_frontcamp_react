@@ -59,8 +59,8 @@ class Search extends Component {
             click={this.searchFilterClickHandler}
             searchBy={this.props.searchBy}
             title={'search by'}
-            leftBtnText={'title'}
-            rightBtnText={'genres'}
+            leftBtnValue={'title'}
+            rightBtnValue={'genres'}
           />
         </div>
         <SortFilter isSearchComponent />

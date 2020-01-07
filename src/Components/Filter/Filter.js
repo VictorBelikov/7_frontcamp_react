@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import style from './Filter.module.scss';
 
@@ -7,11 +8,11 @@ const Filter = (props) => {
   let rightActive;
 
   if (props.searchBy) {
-    leftActive = props.searchBy === props.leftBtnText ? style.active : '';
-    rightActive = props.searchBy === props.rightBtnText ? style.active : '';
+    leftActive = props.searchBy === props.leftBtnValue ? style.active : '';
+    rightActive = props.searchBy === props.rightBtnValue ? style.active : '';
   } else if (props.sortBy) {
-    leftActive = props.sortBy === props.leftBtnText ? style.active : '';
-    rightActive = props.sortBy === props.rightBtnText ? style.active : '';
+    leftActive = props.sortMapping[props.sortBy] === props.leftBtnValue ? style.active : '';
+    rightActive = props.sortMapping[props.sortBy] === props.rightBtnValue ? style.active : '';
   }
 
   return (
@@ -19,13 +20,13 @@ const Filter = (props) => {
       <span>{props.title}</span>
       <input
         type={'button'}
-        value={props.leftBtnText}
+        value={props.leftBtnValue}
         onClick={props.click}
         className={`${style.left} ${leftActive}`}
       />
       <input
         type={'button'}
-        value={props.rightBtnText}
+        value={props.rightBtnValue}
         onClick={props.click}
         className={`${style.right} ${rightActive}`}
       />
@@ -33,4 +34,8 @@ const Filter = (props) => {
   );
 };
 
-export default Filter;
+const mapStateToProps = (state) => ({
+  sortMapping: state.sortMapping,
+});
+
+export default connect(mapStateToProps)(Filter);

@@ -7,7 +7,8 @@ import * as __actions from '../../store/actions/films';
 
 class SortFilter extends Component {
   sortFilterClickHandler = (e) => {
-    this.props.onSetSortFilter(e.target.value);
+    const value = e.target.value;
+    this.props.onSetSortFilter(this.props.sortMapping[value]);
   };
 
   render() {
@@ -20,8 +21,8 @@ class SortFilter extends Component {
           click={this.sortFilterClickHandler}
           sortBy={this.props.sortBy}
           title={'sort by'}
-          leftBtnText={'release date'}
-          rightBtnText={'rating'}
+          leftBtnValue={'release date'}
+          rightBtnValue={'rating'}
         />
       </Fragment>
     );
@@ -47,6 +48,7 @@ const mapStateToProps = (state) => ({
   film: state.particularFilm,
   films: state.films,
   sortBy: state.query.sortBy,
+  sortMapping: state.sortMapping,
 });
 
 const mapDispatchToProps = (dispatch) => ({

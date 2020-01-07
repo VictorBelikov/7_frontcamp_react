@@ -5,15 +5,17 @@ import * as __actions from '../actions/actions';
 const initialState = {
   films: [],
   particularFilm: {},
+  sortMapping: {
+    rating: 'vote_average',
+    'release date': 'release_date',
+    vote_average: 'rating',
+    release_date: 'release date',
+  },
   query: {
     search: '',
     searchBy: 'title',
     sortOrder: 'desc',
     sortBy: 'vote_average',
-    // sortFields: {
-    //   rating: 'vote_average',
-    //   'release date': 'release_date',
-    // },
     limit: 20,
   },
 };

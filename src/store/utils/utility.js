@@ -12,5 +12,5 @@ export const buildRequest = (stateQuery, genre) => {
   Object.entries(query).forEach((el) => {
     queryStr = queryStr.concat(`${el.join('=')}&`);
   });
-  return queryStr;
+  return queryStr.replace(/&$/, '');
 };
