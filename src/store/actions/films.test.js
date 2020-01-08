@@ -4,9 +4,15 @@ import fetchMock from 'fetch-mock';
 
 import * as __types from './actions';
 import * as __actions from './films';
+import { searchMovieByIdData, searchMoviesData, constants } from '../../static/mockSearchResult';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+const initialStore = {
+  moviesByGenre: [],
+  movie: constants.EMPTY_MOVIE,
+};
 
 describe('actions', () => {
   it('should create an action to "set search value"', () => {
@@ -38,19 +44,25 @@ describe('actions', () => {
 });
 
 describe('async actions', () => {
-  it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
-    fetchMock.getOnce('/todos', {
-      body: { todos: ['do something'] },
-      headers: { 'content-type': 'application/json' },
-    });
+  afterEach(() => {
+    fetchMock.restore();
+  });
 
-    const expectedActions = [{ type: __types.FETCH_FILMS_SUCCESS, body: { todos: ['do something'] } }];
-    const store = mockStore({ todos: [] });
+  it('creates FETCH_FILMS_SUCCESS when fetching movies has been done', () => {
+    fetchMock.get(
+      'https://reactjs-cdp.herokuapp.com/movies?search=drama&searchBy=genres&sortOrder=desc&sortBy=vote_average&limit=20',
+      {
+        status: 200,
+        body: searchMoviesData,
+      },
+    );
+
+    const expectedActions = [{ type: __types.FETCH_FILMS_SUCCESS, films: searchMoviesData.data }];
+    const store = mockStore(initialStore);
 
     return store
-      .dispatch(__actions.fetchFilms('search=drama&searchBy=genres&sortOrder=desc&sortBy=vote_average&limit=20'))
+      .dispatch(__actions.fetchFilms('search=drama&searchBy=genres&sortOrder=desc&sortBy=vote_average&limit=2'))
       .then(() => {
-        // return of async actions
         expect(store.getActions()).toEqual(expectedActions);
       });
   });

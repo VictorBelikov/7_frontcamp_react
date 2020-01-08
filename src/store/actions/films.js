@@ -34,7 +34,7 @@ export const setSearchValue = (value) => ({
 });
 
 const fetchMovies = (dispatch, query) => {
-  axios
+  return axios
     .get(`/movies?${query}`)
     .then((response) => {
       dispatch(fetchFilmsSuccess(response.data.data));
@@ -44,7 +44,7 @@ const fetchMovies = (dispatch, query) => {
 
 export const fetchFilms = (query) => {
   return (dispatch) => {
-    fetchMovies(dispatch, query);
+    return fetchMovies(dispatch, query);
   };
 };
 
@@ -54,7 +54,7 @@ export const fetchParticularFilm = (id) => {
       const response = await axios.get(`/movies/${id}`);
       await dispatch(fetchParticularFilmSuccess(response.data));
       const query = buildRequest(getState().query, response.data.genres[0]);
-      fetchMovies(dispatch, query);
+      await fetchMovies(dispatch, query);
     } catch (err) {
       dispatch(fetchFilmsFail(err));
     }
